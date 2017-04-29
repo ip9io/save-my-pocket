@@ -1,0 +1,20 @@
+
+# Ignore bunlder files
+.bundle
+.gems
+/vendor/bundle
+
+# Ignore Ruby manager
+.rvmrc
+
+# Ignore working files
+OLD.*
+BACK.*
+ORIG.*
+TEST.*
+
+# Ignore OSX files
+.DS_Store
+
+# Ignore Vim artifacts
+**.swp
