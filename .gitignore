@@ -4,6 +4,9 @@
 .gems
 /vendor/bundle
 
+# Local settings
+config/settings.rb
+
 # Ignore Ruby manager
 .rvmrc
 
