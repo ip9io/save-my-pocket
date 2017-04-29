@@ -1,5 +1,5 @@
 
-# Ignore bunlder files
+# Ignore bundler files
 .bundle
 .gems
 /vendor/bundle
