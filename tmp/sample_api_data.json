@@ -1,0 +1,286 @@
+{
+  "status": 1,
+  "complete": 1,
+  "list": {
+    "1183319741": {
+      "item_id": "1183319741",
+      "resolved_id": "1183319741",
+      "given_url": "https://www.cyberciti.biz/faq/how-to-create-unprivileged-linux-containers-on-ubuntu-linux/",
+      "given_title": "How to create unprivileged LXC container on Ubuntu Linux 14.04 LTS – nixCra",
+      "favorite": "0",
+      "status": "0",
+      "time_added": "1493555750",
+      "time_updated": "1493555784",
+      "time_read": "0",
+      "time_favorited": "0",
+      "sort_id": 0,
+      "resolved_title": "How to create unprivileged LXC container on Ubuntu Linux 14.04 LTS",
+      "resolved_url": "https://www.cyberciti.biz/faq/how-to-create-unprivileged-linux-containers-on-ubuntu-linux/",
+      "excerpt": "Say hello to LXC The LXC often described as a lightweight virtualization technology. You can think LXC as chrooted jail on steroids. There is no guest operating system involved. You can only run Linux distros with LXC. You can not run Windows or BSD or any other operating system with LXC.",
+      "is_article": "1",
+      "is_index": "0",
+      "has_video": "0",
+      "has_image": "1",
+      "word_count": "1774",
+      "amp_url": "https://www.cyberciti.biz/faq/how-to-create-unprivileged-linux-containers-on-ubuntu-linux/amp/",
+      "tags": {
+        "container": {
+          "item_id": "1183319741",
+          "tag": "container"
+        },
+        "linux": {
+          "item_id": "1183319741",
+          "tag": "linux"
+        },
+        "lxc": {
+          "item_id": "1183319741",
+          "tag": "lxc"
+        }
+      },
+      "authors": {
+        "14014": {
+          "item_id": "1183319741",
+          "author_id": "14014",
+          "name": "Vivek Gite",
+          "url": ""
+        }
+      },
+      "image": {
+        "item_id": "1183319741",
+        "src": "https://s0.cyberciti.org/uploads/faq/2016/02/lxc-intro.jpg",
+        "width": "350",
+        "height": "364"
+      },
+      "images": {
+        "1": {
+          "item_id": "1183319741",
+          "image_id": "1",
+          "src": "https://s0.cyberciti.org/uploads/faq/2016/02/lxc-intro.jpg",
+          "width": "350",
+          "height": "364",
+          "credit": "",
+          "caption": "Fig.01: Linux containers"
+        },
+        "2": {
+          "item_id": "1183319741",
+          "image_id": "2",
+          "src": "https://s0.cyberciti.org/uploads/faq/2016/02/install-lxc-command.jpg",
+          "width": "599",
+          "height": "533",
+          "credit": "",
+          "caption": "Fig.02: Installing LXC on Ubuntu"
+        },
+        "3": {
+          "item_id": "1183319741",
+          "image_id": "3",
+          "src": "https://s0.cyberciti.org/uploads/faq/2016/02/lxc-create.jpg",
+          "width": "599",
+          "height": "302",
+          "credit": "",
+          "caption": "Fig.03: Create an Ubuntu container"
+        }
+      }
+    },
+    "1436076361": {
+      "item_id": "1436076361",
+      "resolved_id": "1436076361",
+      "given_url": "https://ok-b.org/",
+      "given_title": "OK borg - the quickest solution to your bash woes",
+      "favorite": "0",
+      "status": "0",
+      "time_added": "1491575744",
+      "time_updated": "1491575763",
+      "time_read": "0",
+      "time_favorited": "0",
+      "sort_id": 1,
+      "resolved_title": "",
+      "resolved_url": "https://ok-b.org/",
+      "excerpt": "",
+      "is_article": "0",
+      "is_index": "0",
+      "has_video": "0",
+      "has_image": "0",
+      "word_count": "0",
+      "tags": {
+        "bash": {
+          "item_id": "1436076361",
+          "tag": "bash"
+        },
+        "code": {
+          "item_id": "1436076361",
+          "tag": "code"
+        },
+        "collection": {
+          "item_id": "1436076361",
+          "tag": "collection"
+        },
+        "command": {
+          "item_id": "1436076361",
+          "tag": "command"
+        }
+      }
+    },
+    "1177164175": {
+      "item_id": "1177164175",
+      "resolved_id": "1177164175",
+      "given_url": "https://dockyard.com/blog/2016/01/28/running-elixir-and-phoenix-projects-on-a-cluster-of-nodes",
+      "given_title": "Running Elixir and Phoenix projects on a cluster of nodes",
+      "favorite": "0",
+      "status": "0",
+      "time_added": "1491575406",
+      "time_updated": "1491604251",
+      "time_read": "0",
+      "time_favorited": "0",
+      "sort_id": 2,
+      "resolved_title": "Running Elixir and Phoenix projects on a cluster of nodes",
+      "resolved_url": "https://dockyard.com/blog/2016/01/28/running-elixir-and-phoenix-projects-on-a-cluster-of-nodes",
+      "excerpt": "Once you're ready to deploy your Elixir application to multiple servers, you'll want to take advantage of the distributed features that the runtime offers. For example, if you are using Phoenix channels, you'll want broadcasts to be sent across the cluster.",
+      "is_article": "1",
+      "is_index": "0",
+      "has_video": "0",
+      "has_image": "0",
+      "word_count": "380",
+      "tags": {
+        "cluster": {
+          "item_id": "1177164175",
+          "tag": "cluster"
+        },
+        "code": {
+          "item_id": "1177164175",
+          "tag": "code"
+        },
+        "elixir": {
+          "item_id": "1177164175",
+          "tag": "elixir"
+        },
+        "phoenix": {
+          "item_id": "1177164175",
+          "tag": "phoenix"
+        }
+      },
+      "authors": {
+        "47910134": {
+          "item_id": "1177164175",
+          "author_id": "47910134",
+          "name": "Chris McCord",
+          "url": "https://dockyard.com/blog/authors/chris-mccord"
+        }
+      }
+    },
+    "1609179217": {
+      "item_id": "1609179217",
+      "resolved_id": "1609179217",
+      "given_url": "https://blog.codeship.com/concurrency-in-elixir/",
+      "given_title": "Concurrency in Elixir - via @codeship | via @codeship",
+      "favorite": "0",
+      "status": "0",
+      "time_added": "1491575358",
+      "time_updated": "1491575373",
+      "time_read": "0",
+      "time_favorited": "0",
+      "sort_id": 3,
+      "resolved_title": "Concurrency in Elixir",
+      "resolved_url": "https://blog.codeship.com/concurrency-in-elixir/",
+      "excerpt": "Erlang has been around for over 30 years and was built well before multi-core CPUs existed. Yet it’s a language that couldn’t be more relevant today! The underlying architecture of the language lends itself perfectly to the modern CPUs that are on every computer and mobile device.",
+      "is_article": "1",
+      "is_index": "0",
+      "has_video": "0",
+      "has_image": "1",
+      "word_count": "2257",
+      "tags": {
+        "code": {
+          "item_id": "1609179217",
+          "tag": "code"
+        },
+        "concurrency": {
+          "item_id": "1609179217",
+          "tag": "concurrency"
+        },
+        "elixir": {
+          "item_id": "1609179217",
+          "tag": "elixir"
+        },
+        "tutorial": {
+          "item_id": "1609179217",
+          "tag": "tutorial"
+        }
+      },
+      "authors": {
+        "42015136": {
+          "item_id": "1609179217",
+          "author_id": "42015136",
+          "name": "Leigh Halliday",
+          "url": "https://blog.codeship.com/author/leighhalliday/"
+        }
+      },
+      "image": {
+        "item_id": "1609179217",
+        "src": "https://1npo9l3lml0zvr6w62acc3t1-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/actors.png",
+        "width": "1018",
+        "height": "1182"
+      },
+      "images": {
+        "1": {
+          "item_id": "1609179217",
+          "image_id": "1",
+          "src": "https://1npo9l3lml0zvr6w62acc3t1-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/actors.png",
+          "width": "1018",
+          "height": "1182",
+          "credit": "",
+          "caption": ""
+        }
+      }
+    },
+    "157113791": {
+      "item_id": "157113791",
+      "resolved_id": "157113791",
+      "given_url": "http://smyck.net/2012/04/22/why-erlang/",
+      "given_title": "Why Erlang? | SMYCK",
+      "favorite": "0",
+      "status": "0",
+      "time_added": "1491575312",
+      "time_updated": "1493420589",
+      "time_read": "0",
+      "time_favorited": "0",
+      "sort_id": 4,
+      "resolved_title": "Why Erlang?",
+      "resolved_url": "https://smyck.net/2012/04/22/why-erlang/",
+      "excerpt": "The chance that you are reading this blog post on a device with a multicore cpu is increasing on a daily basis which is why everybody is talking about concurrency now. Concurrency for our web applications and API backends means that we’d like our htop to look like this:",
+      "is_article": "1",
+      "is_index": "0",
+      "has_video": "0",
+      "has_image": "1",
+      "word_count": "1583",
+      "authors": {
+        "62775832": {
+          "item_id": "157113791",
+          "author_id": "62775832",
+          "name": "hukl",
+          "url": "https://smyck.net/author/admin/"
+        }
+      },
+      "image": {
+        "item_id": "157113791",
+        "src": "http://smyck.net/blogimages/concurrent.jpg",
+        "width": "0",
+        "height": "0"
+      },
+      "images": {
+        "1": {
+          "item_id": "157113791",
+          "image_id": "1",
+          "src": "http://smyck.net/blogimages/concurrent.jpg",
+          "width": "0",
+          "height": "0",
+          "credit": "",
+          "caption": ""
+        }
+      }
+    }
+  },
+  "error": null,
+  "search_meta": {
+    "search_type": "normal"
+  },
+  "since": 1493583523
+}
