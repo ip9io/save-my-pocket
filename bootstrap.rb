@@ -5,11 +5,11 @@ require 'yaml'
 require 'active_record'
 
 # Define application pathes
-ROOT_PATH = File.expand_path File.dirname(__FILE__)
-CONF_PATH = File.join ROOT_PATH, 'config'
-LIBS_PATH = File.join ROOT_PATH, 'libs'
-DB_PATH = File.join ROOT_PATH, 'db'
-LOG_PATH = File.join ROOT_PATH, 'log'
+ROOT_PATH   = File.expand_path File.dirname(__FILE__)
+CONF_PATH   = File.join ROOT_PATH, 'config'
+LIBS_PATH   = File.join ROOT_PATH, 'libs'
+DB_PATH     = File.join ROOT_PATH, 'db'
+LOG_PATH    = File.join ROOT_PATH, 'log'
 MODELS_PATH = File.join ROOT_PATH, 'models'
 
 # Load settings
