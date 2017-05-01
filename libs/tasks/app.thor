@@ -8,7 +8,7 @@ class App < Thor
 
   desc 'import', 'Initial pocket bookmarks import (waiting)'
   def import
-    puts '-- Initial import --'
+    BookmarkManager.import_bookmarks
   end
 
   desc 'sync', 'Synchronize pocket bookmarks (waiting)'
