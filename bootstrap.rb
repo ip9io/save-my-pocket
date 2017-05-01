@@ -4,7 +4,7 @@ Bundler.require
 require 'yaml'
 require 'active_record'
 
-# Define applications pathes
+# Define application pathes
 ROOT_PATH = File.expand_path File.dirname(__FILE__)
 CONF_PATH = File.join ROOT_PATH, 'config'
 LIBS_PATH = File.join ROOT_PATH, 'libs'
