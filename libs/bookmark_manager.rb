@@ -22,9 +22,8 @@ class BookmarkManager
           items.each_pair do |id, values|
             attributes = extract_info values
             puts "##{attributes[:id]} - #{attributes[:title]}"
-            #
-            # Insert bookmark into database ... TODO 
-            #
+            attributes.store :json, values.to_json
+            Bookmark.create attributes
           end
         end
         offset += nb

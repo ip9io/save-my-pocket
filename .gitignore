@@ -6,9 +6,19 @@
 
 # Local settings
 config/settings.rb
+config/databases.yaml
 
 # Ignore Ruby manager
 .rvmrc
+
+# Ignore databases
+/db/*
+!/db/migration
+!/db/schema.sql
+
+# Ignore log
+/log/*
+!/log/.keep
 
 # Ignore working files
 OLD.*
