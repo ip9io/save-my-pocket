@@ -21,7 +21,7 @@ end
 
 get '/bookmark/json/:id' do
   content_type 'application/json; charset=UTF-8'
-  item = Bookmark:: find params[:id]
+  item = Bookmark::find params[:id]
   item.json
 end
 
