@@ -1,7 +1,7 @@
 #
 # Thor tasks loader
 #
-load File.join 'bootstrap.rb'
+load 'bootstrap.rb'
 
 Dir.glob(File.join LIBS_PATH, 'tasks', '*.thor').each { |f| load f }
 
