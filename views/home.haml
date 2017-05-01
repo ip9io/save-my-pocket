@@ -1,1 +1,8 @@
-%p Hello World From HAML template
+- @bookmarks.each do |bookmark|
+  .box
+    %p.bookmark
+      %a.title(href="#{bookmark.url}" target="_blank")
+        = bookmark.title
+      %a.link.first(href="https://getpocket.com/a/read/#{bookmark.id}" target="_blank") (Pocket)
+      &dash;
+      %a.link(href="/bookmark/json/#{bookmark.id}" target="_blank") (json)

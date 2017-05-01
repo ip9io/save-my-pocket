@@ -15,7 +15,14 @@ set :sessions, true
 set :session_secret, SESSION_SECRET
 
 get '/' do
+  @bookmarks = Bookmark::all.order time_added: :desc
   haml :home
+end
+
+get '/bookmark/json/:id' do
+  content_type 'application/json; charset=UTF-8'
+  item = Bookmark:: find params[:id]
+  item.json
 end
 
 get '/logout' do
