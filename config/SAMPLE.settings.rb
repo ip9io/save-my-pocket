@@ -6,4 +6,5 @@ SESSION_SECRET = '-your-secret-'
 POCKET_CONSUMER_KEY = '-your-key-'
 POCKET_USER = '-your-user-'
 POCKET_PWD = '-your-pwd-'
+POCKET_INITAL_IMPORT_BATCH_SIZE = 100
 
