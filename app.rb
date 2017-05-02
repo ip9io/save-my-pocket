@@ -1,5 +1,13 @@
+# -----------------------------------------------------
+# Save My Pocket
+# @author : ip9io
+# -----------------------------------------------------
 require './bootstrap'
 
+
+# -----------------------------------------------------
+# Configure Pocket Library
+# -----------------------------------------------------
 CALLBACK_URL = APP_URL + '/pocket/oauth/callback'
 
 Pocket.configure do |config|
@@ -7,6 +15,9 @@ Pocket.configure do |config|
 end
 
 
+# -----------------------------------------------------
+# App Settings
+# -----------------------------------------------------
 set :root, ROOT_PATH
 set :public_folder, 'public'
 set :static, true
@@ -14,6 +25,10 @@ set :views, 'views'
 set :sessions, true
 set :session_secret, SESSION_SECRET
 
+
+# -----------------------------------------------------
+# Local App
+# -----------------------------------------------------
 get '/' do
   @bookmarks = Bookmark::all.order time_added: :desc
   haml :home
@@ -31,6 +46,9 @@ get '/logout' do
 end
 
 
+# -----------------------------------------------------
+#  Pocket Api Interaction
+# -----------------------------------------------------
 get '/pocket/oauth/connect' do
   session[:code] = Pocket.get_code redirect_uri: CALLBACK_URL
   redirect Pocket.authorize_url code: session[:code], redirect_uri: CALLBACK_URL
@@ -48,6 +66,4 @@ get '/pocket/all/:offset/:nb' do
   info = client.retrieve detailType: :complete, sort: :newest, offset: params[:offset], count: params[:nb]
   info.to_json
 end
-
-
 
