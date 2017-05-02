@@ -69,3 +69,16 @@ p.bookmark {
   margin-top: 20px;
 }
 
+p.tags {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+}
+
+p.tags span {
+  background: #ececec;
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #888;
+}
+
+

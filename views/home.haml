@@ -6,3 +6,6 @@
       %a.link.first(href="https://getpocket.com/a/read/#{bookmark.id}" target="_blank") (Pocket)
       &dash;
       %a.link(href="/bookmark/json/#{bookmark.id}" target="_blank") (json)
+    %p.tags
+      - bookmark.tags.each do |tag|
+        %span= tag.name
