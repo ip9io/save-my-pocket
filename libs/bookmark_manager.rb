@@ -6,7 +6,7 @@ class BookmarkManager
   def self.import_bookmarks
     browser = PocketBrowser.get
     offset  = 0
-    nb      = POCKET_INITAL_IMPORT_BATCH_SIZE
+    nb      = POCKET_INITIAL_IMPORT_BATCH_SIZE
     go_next = true
     while go_next
       puts '------------------------------------'
