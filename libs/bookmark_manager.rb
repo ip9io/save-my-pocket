@@ -34,6 +34,33 @@ class BookmarkManager
     end
   end
 
+  def self.import_tags
+    cached_tags = {}
+    Bookmark.find_in_batches(batch_size: 8) do |group|
+      group.each do |bookmark|
+        print "#{bookmark.id} : "
+        values = JSON.parse bookmark.json
+        if values.key?('tags')
+          values['tags'].each_key do |tag_name|
+            if cached_tags.key? tag_name
+              tag_id = cached_tags[tag_name]
+              print " #{tag_name}"
+            else
+              tag = Tag.create name: tag_name
+              tag_id = tag.id
+              cached_tags[tag_name] = tag_id
+              print " +#{tag_name}"
+            end
+            Taggable.create bookmark_id: bookmark.id, tag_id: tag_id
+          end
+          print "\n"
+        else
+          print " -no-tag-\n"
+        end
+      end
+    end
+  end
+
 
   protected
 
