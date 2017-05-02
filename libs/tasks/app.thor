@@ -10,7 +10,7 @@ class App < Thor
 
   desc 'import', 'Initial pocket bookmarks import (waiting)'
   def import
-    # BookmarkManager.import_bookmarks
+    BookmarkManager.import_bookmarks
     BookmarkManager.import_tags
     say 'Initial pocket bookmarks import done.', :green
   end
