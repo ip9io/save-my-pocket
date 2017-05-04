@@ -22,7 +22,7 @@ class BookmarkManager
           items.each_pair do |id, values|
             attributes = extract_info values
             puts "##{attributes[:id]} - #{attributes[:title]}"
-            attributes.store :json, values.to_json
+            attributes.store :json, values.to_json  # TODO : refactor this in extract_info
             Bookmark.create attributes
           end
         end
@@ -62,6 +62,67 @@ class BookmarkManager
   end
 
 
+  def self.sync_bookmark
+
+    browser = PocketBrowser.get
+    browser.goto APP_URL + '/pocket/sync'
+    json = browser.text
+
+    data = JSON.parse json
+    error = data['error']
+
+    unless error.nil?
+      # Update the last sync date ??????
+      raise StandardError, 'Pocket API response Error !'
+    end
+
+    json_bookmarks = data['list']
+
+    if json_bookmarks.size == 0
+      # Variable.set_sync_status_to_now
+      return
+    end
+
+    json_bookmarks.each_pair do |id, values|
+
+      print "id : #{id}"
+
+      bookmark = Bookmark.where(id: id.to_i).first
+
+      if values['status'] == 2
+        # Bookmark must be delete if it exist in our database
+        Taggable.where(bookmark_id: id.to_i).delete_all
+        bookmark.delete unless bookmark.nil?
+        puts ' - deleted'
+      else
+        attributes = extract_info values
+        attributes.store :json, values.to_json   # TODO : refactor this in extract_info
+
+        if bookmark.nil?
+          # Bookmark must be created
+          bookmark = Bookmark.create attributes
+          #
+          # TODO : manage tags
+          #
+          puts ' - created'
+        else
+          # Bookmark must be updated
+          bookmark.update attributes
+          #
+          # TODO : Sync tags
+          #
+          puts ' - updated'
+        end
+
+      end
+
+      # Update the last sync date
+      # Variable.set_sync_status_to_now
+    end
+
+  end
+
+
   protected
 
     def self.extract_info(values)
@@ -75,7 +136,6 @@ class BookmarkManager
         time_added: values['time_added'].to_i
       }
     end
-
 
 end
 
