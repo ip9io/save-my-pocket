@@ -62,7 +62,7 @@ class BookmarkManager
   end
 
 
-  def self.sync_bookmark
+  def self.sync_bookmarks
 
     browser = PocketBrowser.get
     browser.goto APP_URL + '/pocket/sync'
