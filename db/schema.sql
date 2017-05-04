@@ -19,3 +19,8 @@ CREATE TABLE "taggables" (
   FOREIGN KEY(tag_id) REFERENCES tags(id),
   UNIQUE(bookmark_id, tag_id)
 );
+CREATE TABLE "variables" (
+  name VARCHAR(50) NOT NULL,
+  value INTEGER NOT NULL,
+  PRIMARY KEY(name)
+);
