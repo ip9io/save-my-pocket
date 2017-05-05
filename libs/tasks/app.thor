@@ -12,6 +12,7 @@ class App < Thor
   def import
     BookmarkManager.import_bookmarks
     BookmarkManager.import_tags
+    Variable.set_sync_time_to_now
     say 'Initial pocket bookmarks import done.', :green
   end
 
