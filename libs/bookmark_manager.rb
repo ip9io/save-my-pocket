@@ -3,6 +3,12 @@
 #
 class BookmarkManager
 
+  def self.initial_import
+    import_bookmarks
+    import_tags
+    Variable.set_sync_time_to_now
+  end
+
   def self.import_bookmarks
     browser = PocketBrowser.get
     offset  = 0
