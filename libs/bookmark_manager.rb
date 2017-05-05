@@ -77,7 +77,7 @@ class BookmarkManager
     json_bookmarks = data['list']
 
     if json_bookmarks.size == 0
-      Variable.set_sync_status_to_now
+      Variable.set_sync_time_to_now
       return
     end
 
@@ -108,7 +108,7 @@ class BookmarkManager
       end
 
       # Update the last sync date
-      Variable.set_sync_status_to_now
+      Variable.set_sync_time_to_now
     end
   end
 
