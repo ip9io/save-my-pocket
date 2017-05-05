@@ -1,7 +1,7 @@
 class Variable < ActiveRecord::Base
 
   def self.get_current_sync_time
-    where(name: 'sync_time').first.value
+    find('sync_time').value
   end
 
   def self.set_sync_time_to_now
@@ -9,7 +9,7 @@ class Variable < ActiveRecord::Base
   end
 
   def self.set_sync_time(value)
-    where(name: 'sync_time').first.update value: value
+    find('sync_time').first.update value: value
   end
 
   def self.create_sync_time_row
