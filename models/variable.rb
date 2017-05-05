@@ -9,7 +9,7 @@ class Variable < ActiveRecord::Base
   end
 
   def self.set_sync_time(value)
-    find('sync_time').first.update value: value
+    find('sync_time').update value: value
   end
 
   def self.create_sync_time_row
