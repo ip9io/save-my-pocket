@@ -9,6 +9,7 @@ class BookmarkManager
     Variable.set_sync_time_to_now
   end
 
+
   def self.import_bookmarks
     browser = PocketBrowser.get
     offset  = 0
@@ -28,7 +29,6 @@ class BookmarkManager
           items.each_pair do |id, values|
             attributes = extract_info values
             puts "##{attributes[:id]} - #{attributes[:title]}"
-            attributes.store :json, values.to_json  # TODO : refactor this in extract_info
             Bookmark.create attributes
           end
         end
@@ -98,7 +98,6 @@ class BookmarkManager
         puts ' - deleted'
       else
         attributes = extract_info values
-        attributes.store :json, values.to_json   # TODO : refactor this in extract_info
         if bookmark.nil?
           # Bookmark must be created
           bookmark = Bookmark.create attributes
@@ -129,6 +128,7 @@ class BookmarkManager
         id:         values['item_id'].to_i,
         title:      title,
         url:        values['resolved_url'],
+        json:       values.to_json,
         time_added: values['time_added'].to_i
       }
     end
