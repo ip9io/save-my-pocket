@@ -68,7 +68,7 @@ class BookmarkManager
   end
 
 
-  def self.sync_bookmarks
+  def self.sync
     browser = PocketBrowser.get
     browser.goto APP_URL + '/pocket/sync'
     json = browser.text
