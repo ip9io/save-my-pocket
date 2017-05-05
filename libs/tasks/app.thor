@@ -17,7 +17,7 @@ class App < Thor
   desc 'sync', 'Synchronize pocket bookmarks (waiting)'
   def sync
     BookmarkManager.sync
-    say 'Bookmarks synced !'
+    say 'Bookmarks synced !', :green
   end
 
 end
