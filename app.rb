@@ -70,7 +70,7 @@ end
 get '/pocket/sync' do
   content_type 'application/json; charset=UTF-8'
   client = Pocket.client access_token: session[:access_token]
-  info = client.retrieve detailType: :complete, sort: :newest, count: 100, since: Variable.get_current_sync_status
+  info = client.retrieve detailType: :complete, sort: :newest, count: POCKET_SYNC_COUNT, since: Variable.get_current_sync_status
   info.to_json
 end
 
