@@ -63,7 +63,6 @@ class BookmarkManager
 
 
   def self.sync_bookmarks
-
     browser = PocketBrowser.get
     browser.goto APP_URL + '/pocket/sync'
     json = browser.text
@@ -84,12 +83,10 @@ class BookmarkManager
     end
 
     json_bookmarks.each_pair do |id, values|
-
       print "id : #{id}"
-
       bookmark = Bookmark.where(id: id.to_i).first
 
-      if values['status'] == 2
+      if values['status'] == '2'
         # Bookmark must be delete if it exist in our database
         Taggable.where(bookmark_id: id.to_i).delete_all
         bookmark.delete unless bookmark.nil?
@@ -97,23 +94,18 @@ class BookmarkManager
       else
         attributes = extract_info values
         attributes.store :json, values.to_json   # TODO : refactor this in extract_info
-
         if bookmark.nil?
           # Bookmark must be created
           bookmark = Bookmark.create attributes
-          #
-          # TODO : manage tags
-          #
           puts ' - created'
         else
           # Bookmark must be updated
           bookmark.update attributes
-          #
-          # TODO : Sync tags
-          #
           puts ' - updated'
         end
 
+        tags = values.key?('tags') ? values['tags'].keys : []
+        sync_tags bookmark, tags
       end
 
       # Update the last sync date
@@ -135,6 +127,26 @@ class BookmarkManager
         url:        values['resolved_url'],
         time_added: values['time_added'].to_i
       }
+    end
+
+    def self.sync_tags(bookmark, json_tags)
+      stored_tags = bookmark.tags.pluck :name
+
+      delete_tags = stored_tags.reject { |t| json_tags.include?(t) }
+      add_tags = json_tags.reject { |t| stored_tags.include?(t) }
+
+      delete_tags.each do |t|
+        tag = Tag.where(name: t).first
+        bookmark.tags.destroy tag unless tag.nil?
+        puts "delete: #{t}"
+      end
+
+      add_tags.each do |t|
+        tag = Tag.where(name: t).first
+        tag = Tag.create(name: t) if tag.nil?
+        bookmark.tags << tag
+        puts "add: #{t}"
+      end
     end
 
 end
