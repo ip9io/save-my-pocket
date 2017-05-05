@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
   has_many :taggables
-  has_many :bookmark, through: :taggables
+  has_many :bookmarks, through: :taggables
 end
