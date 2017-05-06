@@ -10,13 +10,13 @@ class App < Thor
 
   desc 'import', 'Initial pocket bookmarks import (waiting)'
   def import
-    BookmarkManager.initial_import
+    BookmarkManager.new(PocketBrowser.get_authorized).initial_import
     say 'Initial pocket bookmarks import done.', :green
   end
 
   desc 'sync', 'Synchronize pocket bookmarks (waiting)'
   def sync
-    BookmarkManager.sync
+    BookmarkManager.new(PocketBrowser.get_authorized).sync
     say 'Bookmarks synced !', :green
   end
 
