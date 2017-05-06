@@ -3,17 +3,23 @@
 #
 class BookmarkManager
 
-  def self.initial_import
+  @browser = nil
+
+  def initialize(browser)
+    @browser = browser
+  end
+
+
+  def initial_import
     import_bookmarks
     import_tags
     Variable.set_sync_time_to_now
   end
 
 
-  def self.sync
-    browser = PocketBrowser.get
-    browser.goto APP_URL + '/pocket/sync'
-    json = browser.text
+  def sync
+    @browser.goto APP_URL + '/pocket/sync'
+    json = @browser.text
 
     data = JSON.parse json
     error = data['error']
@@ -62,8 +68,7 @@ class BookmarkManager
 
   protected
 
-    def self.import_bookmarks
-      browser = PocketBrowser.get
+    def import_bookmarks
       offset  = 0
       nb      = POCKET_INITIAL_IMPORT_BATCH_SIZE
       go_next = true
@@ -71,8 +76,8 @@ class BookmarkManager
         puts '------------------------------------'
         puts "Query : offset=#{offset} - nb=#{nb}"
         puts '------------------------------------'
-        browser.goto APP_URL + "/pocket/all/#{offset}/#{nb}"
-        json = browser.text
+        @browser.goto APP_URL + "/pocket/all/#{offset}/#{nb}"
+        json = @browser.text
         data = JSON.parse json
         error = data['error']
         if error.nil?
@@ -92,7 +97,7 @@ class BookmarkManager
       end
     end
 
-    def self.import_tags
+    def import_tags
       cached_tags = {}
       Bookmark.find_in_batches(batch_size: 8) do |group|
         group.each do |bookmark|
@@ -120,7 +125,7 @@ class BookmarkManager
     end
 
 
-    def self.extract_info(values)
+    def extract_info(values)
       title = values['resolved_title']
       title = values['given_title'] if title.nil? or title == ''
       title = values['resolved_url'] if title.nil? or title == ''
@@ -133,7 +138,7 @@ class BookmarkManager
       }
     end
 
-    def self.sync_tags(bookmark, json_tags)
+    def sync_tags(bookmark, json_tags)
       stored_tags = bookmark.tags.pluck :name
 
       delete_tags = stored_tags.reject { |t| json_tags.include?(t) }
