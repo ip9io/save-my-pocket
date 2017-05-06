@@ -36,3 +36,10 @@ Dir.glob(File.join MODELS_PATH, '*.rb').each { |f| require f }
 # Load libraries
 Dir.glob(File.join LIBS_PATH, '*.rb').each { |f| require f }
 
+
+# ------------------------ TODO : tmp (will be managed later with env)
+Mail.defaults do
+  delivery_method :smtp, address: 'localhost', port: 1025
+end
+# --------------------------------------------------------------------
+
