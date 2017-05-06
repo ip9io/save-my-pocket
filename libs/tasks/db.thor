@@ -1,15 +1,15 @@
 
 class Db < Thor
 
-  desc 'init', 'Initialize the database (waiting)'
+  desc 'init', '[WAITING] Initialize the database'
   def init
   end
 
-  desc 'dump', 'Dump the database (waiting)'
+  desc 'dump', '[WAITING] Dump the database'
   def dump
   end
 
-  desc 'schema', 'Dump the database schema (waiting)'
+  desc 'schema', '[WAITING] Dump the database schema'
   def schema
   end
 
