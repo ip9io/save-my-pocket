@@ -30,6 +30,11 @@ GEM
     hashie (3.5.5)
     i18n (0.8.1)
     json (2.1.0)
+    mail (2.6.5)
+      mime-types (>= 1.16, < 4)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
     minitest (5.10.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
@@ -71,6 +76,7 @@ DEPENDENCIES
   clockwork
   haml (= 4.0.7)
   json
+  mail
   pocket-ruby
   sinatra (= 1.4.8)
   sqlite3
