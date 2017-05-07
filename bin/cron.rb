@@ -16,7 +16,9 @@ every 1.minute, 'sync bookmarks', thread: true do
     msg << "Backtrace :\n\n"
     msg << e.backtrace.join("\n")
 
-    MailHelper.send '[ALERT] : Error with save my pocket', msg
+    if MAIL_ENABLED
+      MailHelper.send '[ALERT] : Error with save my pocket', msg
+    end
   end
 end
 
