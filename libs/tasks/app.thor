@@ -23,16 +23,3 @@ class App < Thor
 
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-

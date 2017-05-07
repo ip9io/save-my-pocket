@@ -15,7 +15,7 @@ class ReportHelper
       if log.key? :tags
         tags = log[:tags]
         unless tags.size == 0
-          result << "   #{tags.join ' '}\n"
+          result << " \\____ #{tags.join ' '}\n"
         end
       end
     end
