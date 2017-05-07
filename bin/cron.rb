@@ -13,15 +13,16 @@ every 1.minute, 'sync bookmarks', thread: true do
     report = bookmark_manager.sync
     msg = ReportHelper.format report
 
-    if MAIL_ENABLED
+    if MAIL_REPORT_ENABLED
       MailHelper.send '[REPORT] : Sync : Save My Pocket', msg
     end
   rescue Exception => e
     msg = "Message : #{e.message}\n\n"
     msg << "Backtrace :\n\n"
     msg << e.backtrace.join("\n")
+    msg << "\n"
 
-    if MAIL_ENABLED
+    if MAIL_ERROR_ENABLED
       MailHelper.send '[ALERT] : Error with save my pocket', msg
     end
   end
