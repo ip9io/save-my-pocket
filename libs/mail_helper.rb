@@ -15,3 +15,4 @@ class MailHelper
   end
 
 end
+

@@ -9,13 +9,11 @@ class BookmarkManager
     @browser = browser
   end
 
-
   def initial_import
     import_bookmarks
     import_tags
     Variable.set_sync_time_to_now
   end
-
 
   def sync
     @browser.goto APP_URL + '/pocket/sync'
@@ -123,7 +121,6 @@ class BookmarkManager
         end
       end
     end
-
 
     def extract_info(values)
       title = values['resolved_title']
