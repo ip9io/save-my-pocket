@@ -32,6 +32,3 @@ else
   puts '-- we have an api response error --'
 end
 
-
-
-
