@@ -42,7 +42,7 @@ Dir.glob(File.join LIBS_PATH, '*.rb').each { |f| require f }
 
 # ------------------------ TODO : tmp (will be managed later with env)
 Mail.defaults do
-  delivery_method :smtp, address: 'localhost', port: 1025
+  delivery_method :smtp, address: MAIL_HOST, port: MAIL_PORT
 end
 # --------------------------------------------------------------------
 
