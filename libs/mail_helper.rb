@@ -5,8 +5,8 @@ class MailHelper
 
   def self.send(title, msg)
     mail = Mail.new do
-      from    'alert@ip9.io'
-      to      'test@gmail.com'
+      from    MAIL_SEND_FROM
+      to      MAIL_SEND_TO
       subject title
       body    msg
     end
