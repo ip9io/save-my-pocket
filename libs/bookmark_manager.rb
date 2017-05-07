@@ -16,6 +16,8 @@ class BookmarkManager
   end
 
   def sync
+    report = []
+
     @browser.goto APP_URL + '/pocket/sync'
     json = @browser.text
 
@@ -30,37 +32,43 @@ class BookmarkManager
 
     if json_bookmarks.size == 0
       Variable.set_sync_time_to_now
-      return
+      return report
     end
 
     json_bookmarks.each_pair do |id, values|
-      print "id : #{id}"
+      report_data = { id: id }
       bookmark = Bookmark.where(id: id.to_i).first
 
       if values['status'] == '2'
         # Bookmark must be delete if it exist in our database
         Taggable.where(bookmark_id: id.to_i).delete_all
         bookmark.delete unless bookmark.nil?
-        puts ' - deleted'
+        report_data.store :action, 'deleted'
       else
         attributes = extract_info values
         if bookmark.nil?
           # Bookmark must be created
           bookmark = Bookmark.create attributes
-          puts ' - created'
+          report_data.store :action, 'created'
         else
           # Bookmark must be updated
           bookmark.update attributes
-          puts ' - updated'
+          report_data.store :action, 'updated'
         end
 
         tags = values.key?('tags') ? values['tags'].keys : []
-        sync_tags bookmark, tags
+        report_tags = sync_tags bookmark, tags
+        report_data.store :tags, report_tags
       end
+
+      bookmark.nil? ? report_data.store(:title, '') : report_data.store(:title, bookmark.title)
+      report << report_data
 
       # Update the last sync date
       Variable.set_sync_time_to_now
     end
+
+    report
   end
 
 
@@ -136,6 +144,7 @@ class BookmarkManager
     end
 
     def sync_tags(bookmark, json_tags)
+      report_tags = []
       stored_tags = bookmark.tags.pluck :name
 
       delete_tags = stored_tags.reject { |t| json_tags.include?(t) }
@@ -144,15 +153,17 @@ class BookmarkManager
       delete_tags.each do |t|
         tag = Tag.where(name: t).first
         bookmark.tags.destroy tag unless tag.nil?
-        puts "delete: #{t}"
+        report_tags << "-#{t}"
       end
 
       add_tags.each do |t|
         tag = Tag.where(name: t).first
         tag = Tag.create(name: t) if tag.nil?
         bookmark.tags << tag
-        puts "add: #{t}"
+        report_tags << "+#{t}"
       end
+
+      report_tags
     end
 
 end
