@@ -34,7 +34,9 @@ every 1.minute, 'sync bookmarks', thread: true do
 end
 
 
-every 1.month, 'clean up log files', at: '00:00', thread: true do
+# every 1.month, 'clean up log files', at: '00:00', thread: true do
+
+every 10.minute, 'clean up log files', at: '00:00', thread: true do
   File.delete SYNC_LOG_FILE
   File.delete DB_LOG_FILE
 end
