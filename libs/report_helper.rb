@@ -4,7 +4,7 @@
 class ReportHelper
 
   def self.format(report)
-    result = "[#{Time.now}]\n"
+    result = "\n[#{Time.now}]\n"
 
     if report.size == 0
       result << "-- nothing have been done --\n"
