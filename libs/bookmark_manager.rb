@@ -63,10 +63,10 @@ class BookmarkManager
 
       bookmark.nil? ? report_data.store(:title, '') : report_data.store(:title, bookmark.title)
       report << report_data
-
-      # Update the last sync date
-      Variable.set_sync_time_to_now
     end
+
+    # Update the last sync date
+    Variable.set_sync_time_to_now
 
     report
   end
