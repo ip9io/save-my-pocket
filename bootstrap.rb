@@ -12,7 +12,7 @@ DB_PATH     = File.join ROOT_PATH, 'db'
 LOG_PATH    = File.join ROOT_PATH, 'log'
 MODELS_PATH = File.join ROOT_PATH, 'models'
 
-DB_LOG_FILE   = File.join(LOG_PATH, 'db.log')
+DB_LOG_FILE   = File.join LOG_PATH, 'db.log'
 SYNC_LOG_FILE = File.join LOG_PATH, 'sync.log'
 
 # Load settings
