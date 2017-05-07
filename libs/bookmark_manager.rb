@@ -39,19 +39,16 @@ class BookmarkManager
       report_data = { id: id }
       bookmark = Bookmark.where(id: id.to_i).first
 
-      if values['status'] == '2'
-        # Bookmark must be delete if it exist in our database
+      if values['status'] == '2'     # status 2 mean bookmark has been deleted on pocket website
         Taggable.where(bookmark_id: id.to_i).delete_all
         bookmark.delete unless bookmark.nil?
         report_data.store :action, 'deleted'
       else
         attributes = extract_info values
         if bookmark.nil?
-          # Bookmark must be created
           bookmark = Bookmark.create attributes
           report_data.store :action, 'created'
         else
-          # Bookmark must be updated
           bookmark.update attributes
           report_data.store :action, 'updated'
         end
@@ -65,9 +62,7 @@ class BookmarkManager
       report << report_data
     end
 
-    # Update the last sync date
     Variable.set_sync_time_to_now
-
     report
   end
 
