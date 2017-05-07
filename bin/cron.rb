@@ -10,7 +10,12 @@ bookmark_manager = BookmarkManager.new browser
 
 every 1.minute, 'sync bookmarks', thread: true do
   begin
-    bookmark_manager.sync
+    report = bookmark_manager.sync
+    msg = ReportHelper.format report
+
+    if MAIL_ENABLED
+      MailHelper.send '[REPORT] : Sync : Save My Pocket', msg
+    end
   rescue Exception => e
     msg = "Message : #{e.message}\n\n"
     msg << "Backtrace :\n\n"

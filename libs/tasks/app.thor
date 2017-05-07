@@ -16,9 +16,23 @@ class App < Thor
 
   desc 'sync', 'Synchronize pocket bookmarks'
   def sync
-    BookmarkManager.new(PocketBrowser.get_authorized).sync
+    report = BookmarkManager.new(PocketBrowser.get_authorized).sync
+    puts ReportHelper.format(report)
     say '-- Bookmarks synced --', :green
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
