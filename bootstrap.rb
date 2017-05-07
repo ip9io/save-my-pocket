@@ -12,6 +12,9 @@ DB_PATH     = File.join ROOT_PATH, 'db'
 LOG_PATH    = File.join ROOT_PATH, 'log'
 MODELS_PATH = File.join ROOT_PATH, 'models'
 
+DB_LOG_FILE   = File.join(LOG_PATH, 'db.log')
+SYNC_LOG_FILE = File.join LOG_PATH, 'sync.log'
+
 # Load settings
 require File.join CONF_PATH, 'settings'
 
@@ -26,7 +29,7 @@ db_config['production']['database'] =
 
 ActiveRecord::Base.establish_connection db_config['development']
 
-ActiveRecord::Base.logger = Logger.new File.join(LOG_PATH, 'db.log')
+ActiveRecord::Base.logger = Logger.new DB_LOG_FILE
 
 ActiveRecord::Base.logger.level = :debug
 
