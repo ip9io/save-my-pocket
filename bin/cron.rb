@@ -37,7 +37,7 @@ end
 # every 1.month, 'clean up log files', at: '00:00', thread: true do
 
 every 10.minutes, 'clean up log files', thread: true do
-  File.delete SYNC_LOG_FILE
-  File.delete DB_LOG_FILE
+  File.delete SYNC_LOG_FILE  if File.file? SYNC_LOG_FILE
+  File.delete DB_LOG_FILE    if File.file? DB_LOG_FILE
 end
 
