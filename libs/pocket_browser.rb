@@ -3,8 +3,7 @@
 #
 class PocketBrowser
 
-  def self.get_authorized(type=nil)
-    type = :phantomjs if type.nil?
+  def self.get_authorized(type=:phantomjs)
     browser = Watir::Browser.new type
     browser.goto APP_URL + '/pocket/oauth/connect'
     browser.text_field(name: 'feed_id').set POCKET_USER
